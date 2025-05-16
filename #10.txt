@@ -1,0 +1,268 @@
+Started by user Pavithra C
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/Project1
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/Project1/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Pavithra-Karthick/devops-build # timeout=10
+Fetching upstream changes from https://github.com/Pavithra-Karthick/devops-build
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.5'
+ > git fetch --tags --force --progress -- https://github.com/Pavithra-Karthick/devops-build +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/dev^{commit} # timeout=10
+Checking out Revision 0a4fb6eb90f8f17eb630e1d13e202a2ffd6c0813 (refs/remotes/origin/dev)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 0a4fb6eb90f8f17eb630e1d13e202a2ffd6c0813 # timeout=10
+Commit message: "Add files via upload"
+ > git rev-list --no-walk fe9a3092276fc5e4e9b7615f3bffd266ae75a97c # timeout=10
+[Project1] $ /bin/sh -xe /tmp/jenkins9048148068409296705.sh
++ ls -ltr
+total 32
+drwxr-xr-x. 3 jenkins jenkins   179 Apr 20 17:45 build
+-rw-r--r--. 1 jenkins jenkins   171 Apr 20 17:56 Dockerfile
+-rwxr-xr-x. 1 jenkins jenkins   211 Apr 20 20:12 deploy.sh
+-rwxr-xr-x. 1 jenkins jenkins   560 Apr 20 20:12 build.sh
+-rw-r--r--. 1 jenkins jenkins 14147 May 16 18:52 #9.txt
+-rw-r--r--. 1 jenkins jenkins   145 May 16 18:52 docker-compose.yml
++ ./build.sh
+ Building the docker image Myimage:v2 
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 263B done
+#1 DONE 0.0s
+
+#2 [auth] library/nginx:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/nginx:alpine
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 159B done
+#4 DONE 0.0s
+
+#5 [1/4] FROM docker.io/library/nginx:alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10
+#5 resolve docker.io/library/nginx:alpine@sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 0.0s done
+#5 sha256:6769dc3a703c719c1d2756bda113659be28ae16cf0da58dd5fd823d6b9a050ea 10.79kB / 10.79kB done
+#5 sha256:65645c7bb6a0661892a8b03b89d0743208a18dd2f3f17a54ef4b76fb8e2f2a10 10.33kB / 10.33kB done
+#5 sha256:62223d644fa234c3a1cc785ee14242ec47a77364226f1c811d2f669f96dc2ac8 2.50kB / 2.50kB done
+#5 DONE 0.2s
+
+#6 [internal] load build context
+#6 transferring context: 2.61MB 0.0s done
+#6 DONE 0.1s
+
+#7 [2/4] RUN cp /usr/share/nginx/html/index.html /usr/share/nginx/html/index2.html
+#7 DONE 0.4s
+
+#8 [3/4] RUN rm -rf /usr/share/nginx/html/index.html
+#8 DONE 0.3s
+
+#9 [4/4] COPY build  /usr/share/nginx/html/
+#9 DONE 0.1s
+
+#10 exporting to image
+#10 exporting layers 0.1s done
+#10 writing image sha256:393afe276f8a04765f62c247c66f4f72684778694df0519db728644b6a83e666 done
+#10 naming to docker.io/library/myimage:v2 done
+#10 DONE 0.1s
+Building image is successful.
+ LOGGING INTO DOCKER 
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+Login Succeeded
+ Verifying docker images
+REPOSITORY               TAG       IMAGE ID       CREATED        SIZE
+chadayandipavithra/dev   V3        393afe276f8a   1 second ago   50.8MB
+myimage                  v2        393afe276f8a   1 second ago   50.8MB
+chadayandipavithra/dev   <none>    448adade3980   3 weeks ago    50.8MB
+The push refers to repository [docker.io/chadayandipavithra/dev]
+646e508b2074: Preparing
+ba79aa9a528c: Preparing
+e7a149f3ff15: Preparing
+0d853d50b128: Preparing
+947e805a4ac7: Preparing
+811a4dbbf4a5: Preparing
+b8d7d1d22634: Preparing
+e244aa659f61: Preparing
+c56f134d3805: Preparing
+d71eae0084c1: Preparing
+08000c18d16d: Preparing
+811a4dbbf4a5: Waiting
+b8d7d1d22634: Waiting
+e244aa659f61: Waiting
+c56f134d3805: Waiting
+d71eae0084c1: Waiting
+08000c18d16d: Waiting
+0d853d50b128: Layer already exists
+947e805a4ac7: Layer already exists
+646e508b2074: Layer already exists
+811a4dbbf4a5: Layer already exists
+b8d7d1d22634: Layer already exists
+e244aa659f61: Layer already exists
+c56f134d3805: Layer already exists
+d71eae0084c1: Layer already exists
+08000c18d16d: Layer already exists
+e7a149f3ff15: Pushed
+ba79aa9a528c: Pushed
+V3: digest: sha256:800a27c403bbb26d34e23d3886f213139274eaf267b5543633638a3fa6cc2181 size: 2613
++ ssh -o StrictHostKeyChecking=no -i **** ec2-user@ec2-3-87-201-98.compute-1.amazonaws.com
+Pseudo-terminal will not be allocated because stdin is not a terminal.
+Warning: Permanently added 'ec2-3-87-201-98.compute-1.amazonaws.com' (ED25519) to the list of known hosts.
+Register this system with Red Hat Insights: rhc connect
+
+Example:
+# rhc connect --activation-key <key> --organization <org>
+
+The rhc client and Red Hat Insights will enable analytics and additional
+management capabilities on your system.
+View your connected systems at https://console.redhat.com/insights
+
+You can learn more about how to register your system 
+using rhc at https://red.ht/registration
++ ./deploy.sh
+deploying image into the server
+time="2025-05-16T18:52:07Z" level=warning msg="/var/lib/jenkins/workspace/Project1/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ Container container1  Stopping
+ Container container1  Stopped
+ Container container1  Removing
+ Container container1  Removed
+ Network project1_default  Removing
+ Network project1_default  Removed
+Deleted Images:
+untagged: chadayandipavithra/dev@sha256:d706ffb522d68309c8bb87a300f69ba6bd8217d6c3b4bd988ae13f7135726292
+deleted: sha256:448adade3980ae781ee169174c580c89dfc204f772a0371439f41598efca7014
+deleted: sha256:77ee2752d06e01bca1011c9c7ee23607385fc7d0e42cfbcfa78507407048b0e4
+deleted: sha256:808deb809d9ea1f713c8f1831ecf7cd436d130cb7fe581698199dc3a21879e26
+deleted: sha256:ba552a3aa6f8c3c6d58c2a34e197d64b8739fa85e1bc101164e0ab14e7196608
+untagged: chadayandipavithra/dev:V3
+untagged: chadayandipavithra/dev@sha256:800a27c403bbb26d34e23d3886f213139274eaf267b5543633638a3fa6cc2181
+untagged: myimage:v2
+deleted: sha256:393afe276f8a04765f62c247c66f4f72684778694df0519db728644b6a83e666
+
+Deleted build cache objects:
+a7g46e1uxism9xbwkfj5476al
+awr7fm98ysl6sug97w26r2sue
+17k6p2fjv5mxyloq44u16phzk
+i798dnmcg9wjdfzjbfi9srluq
+1ou0wsaqjrcbs3cfkyghnhyv5
+uzpk8crtw9lynwl384n5cld1b
+vh72fkamn7ztwh79z31y7cdeh
+uubma5m0o0cl7pelof6rkzarb
+j178k2kjppuclpkny6ipd7lj1
+eg5tpo4r0c41t69eul2ci07lv
+vmwqgjzy9lbt9odm7bi95wjgj
+ibbj5qquutfphae85i6mzafqg
+rp2sjhssx77vmbgfd4abun7n8
+lmmb6b0sbn8441f6qkk2evp4j
+
+Total reclaimed space: 7.812MB
+time="2025-05-16T18:52:08Z" level=warning msg="/var/lib/jenkins/workspace/Project1/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion"
+ app1 Pulling 
+ f18232174bc9 Pulling fs layer 
+ 61ca4f733c80 Pulling fs layer 
+ b464cfdf2a63 Pulling fs layer 
+ d7e507024086 Pulling fs layer 
+ 81bd8ed7ec67 Pulling fs layer 
+ 197eb75867ef Pulling fs layer 
+ 34a64644b756 Pulling fs layer 
+ 39c2ddfd6010 Pulling fs layer 
+ 48a13d951901 Pulling fs layer 
+ bfc4ac315a26 Pulling fs layer 
+ b9550edbc5d1 Pulling fs layer 
+ 34a64644b756 Waiting 
+ 39c2ddfd6010 Waiting 
+ 48a13d951901 Waiting 
+ bfc4ac315a26 Waiting 
+ b9550edbc5d1 Waiting 
+ d7e507024086 Waiting 
+ 81bd8ed7ec67 Waiting 
+ 197eb75867ef Waiting 
+ f18232174bc9 Downloading [>                                                  ]  50.67kB/3.642MB
+ 61ca4f733c80 Downloading [>                                                  ]  33.23kB/1.791MB
+ 61ca4f733c80 Verifying Checksum 
+ 61ca4f733c80 Download complete 
+ b464cfdf2a63 Downloading [==================================================>]     629B/629B
+ b464cfdf2a63 Verifying Checksum 
+ b464cfdf2a63 Download complete 
+ f18232174bc9 Downloading [==================================================>]  3.642MB/3.642MB
+ f18232174bc9 Verifying Checksum 
+ f18232174bc9 Download complete 
+ f18232174bc9 Extracting [>                                                  ]  65.54kB/3.642MB
+ 81bd8ed7ec67 Downloading [==================================================>]     402B/402B
+ 81bd8ed7ec67 Verifying Checksum 
+ 81bd8ed7ec67 Download complete 
+ d7e507024086 Downloading [==================================================>]     955B/955B
+ d7e507024086 Verifying Checksum 
+ d7e507024086 Download complete 
+ 197eb75867ef Downloading [==================================================>]  1.209kB/1.209kB
+ 197eb75867ef Verifying Checksum 
+ 197eb75867ef Download complete 
+ 34a64644b756 Downloading [==================================================>]  1.397kB/1.397kB
+ 34a64644b756 Verifying Checksum 
+ 34a64644b756 Download complete 
+ 39c2ddfd6010 Downloading [>                                                  ]  156.1kB/15.52MB
+ f18232174bc9 Extracting [=================>                                 ]  1.311MB/3.642MB
+ 48a13d951901 Downloading [==================================================>]     601B/601B
+ 48a13d951901 Verifying Checksum 
+ 48a13d951901 Download complete 
+ 39c2ddfd6010 Downloading [==============================>                    ]  9.438MB/15.52MB
+ f18232174bc9 Extracting [==========================>                        ]  1.901MB/3.642MB
+ bfc4ac315a26 Downloading [==================================================>]     213B/213B
+ bfc4ac315a26 Verifying Checksum 
+ bfc4ac315a26 Download complete 
+ 39c2ddfd6010 Verifying Checksum 
+ 39c2ddfd6010 Download complete 
+ f18232174bc9 Extracting [==================================================>]  3.642MB/3.642MB
+ f18232174bc9 Extracting [==================================================>]  3.642MB/3.642MB
+ b9550edbc5d1 Downloading [=>                                                 ]  16.38kB/737kB
+ b9550edbc5d1 Downloading [==================================================>]    737kB/737kB
+ b9550edbc5d1 Verifying Checksum 
+ b9550edbc5d1 Download complete 
+ f18232174bc9 Pull complete 
+ 61ca4f733c80 Extracting [>                                                  ]  32.77kB/1.791MB
+ 61ca4f733c80 Extracting [==================================================>]  1.791MB/1.791MB
+ 61ca4f733c80 Extracting [==================================================>]  1.791MB/1.791MB
+ 61ca4f733c80 Pull complete 
+ b464cfdf2a63 Extracting [==================================================>]     629B/629B
+ b464cfdf2a63 Extracting [==================================================>]     629B/629B
+ b464cfdf2a63 Pull complete 
+ d7e507024086 Extracting [==================================================>]     955B/955B
+ d7e507024086 Extracting [==================================================>]     955B/955B
+ d7e507024086 Pull complete 
+ 81bd8ed7ec67 Extracting [==================================================>]     402B/402B
+ 81bd8ed7ec67 Extracting [==================================================>]     402B/402B
+ 81bd8ed7ec67 Pull complete 
+ 197eb75867ef Extracting [==================================================>]  1.209kB/1.209kB
+ 197eb75867ef Extracting [==================================================>]  1.209kB/1.209kB
+ 197eb75867ef Pull complete 
+ 34a64644b756 Extracting [==================================================>]  1.397kB/1.397kB
+ 34a64644b756 Extracting [==================================================>]  1.397kB/1.397kB
+ 34a64644b756 Pull complete 
+ 39c2ddfd6010 Extracting [>                                                  ]  163.8kB/15.52MB
+ 39c2ddfd6010 Extracting [=>                                                 ]  491.5kB/15.52MB
+ 39c2ddfd6010 Extracting [===========>                                       ]  3.604MB/15.52MB
+ 39c2ddfd6010 Extracting [========================>                          ]    7.7MB/15.52MB
+ 39c2ddfd6010 Extracting [=================================>                 ]  10.32MB/15.52MB
+ 39c2ddfd6010 Extracting [=======================================>           ]  12.12MB/15.52MB
+ 39c2ddfd6010 Extracting [=================================================> ]   15.4MB/15.52MB
+ 39c2ddfd6010 Extracting [==================================================>]  15.52MB/15.52MB
+ 39c2ddfd6010 Pull complete 
+ 48a13d951901 Extracting [==================================================>]     601B/601B
+ 48a13d951901 Extracting [==================================================>]     601B/601B
+ 48a13d951901 Pull complete 
+ bfc4ac315a26 Extracting [==================================================>]     213B/213B
+ bfc4ac315a26 Extracting [==================================================>]     213B/213B
+ bfc4ac315a26 Pull complete 
+ b9550edbc5d1 Extracting [==>                                                ]  32.77kB/737kB
+ b9550edbc5d1 Extracting [==================================================>]    737kB/737kB
+ b9550edbc5d1 Pull complete 
+ app1 Pulled 
+ Network project1_default  Creating
+ Network project1_default  Created
+ Container container1  Creating
+ Container container1  Created
+ Container container1  Starting
+ Container container1  Started
+Finished: SUCCESS
